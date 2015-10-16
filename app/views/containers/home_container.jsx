@@ -7,7 +7,3 @@ export default class HomeContainer extends Component {
     return <div>Home!</div>;
   }
 }
-
-
-
-

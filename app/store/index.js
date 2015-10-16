@@ -5,8 +5,8 @@ import asyncActionsMiddleware         from "app/middleware/async_actions_middlew
 
 
 let createStoreWithMiddleware = applyMiddleware(
-  asyncActionsMiddleware,
-  createLogger({
+  asyncActionsMiddleware,   //装载异步action中间件
+  createLogger({  //todo 
     predicate: (getState, action) => process.env.NODE_ENV !== "production"
   })
 )(createStore);
@@ -17,9 +17,10 @@ export default function configureStore(initialState) {
 
   if (module.hot) {
     // Enable Webpack hot module replacement for reducers
+    // 为reducers开启webpack的模块热重载
     module.hot.accept('app/reducers', () => {
       const nextRootReducer = require('app/reducers');
-      store.replaceReducer(nextRootReducer);
+      store.replaceReducer(nextRootReducer);  //注意这个replaceReducer方法
     });
   }
 

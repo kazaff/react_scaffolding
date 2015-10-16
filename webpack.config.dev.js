@@ -57,6 +57,7 @@ var webpackConfig = {
     // Whenever someone does import "react", resolve the one in the node_modules
     // at the top level, just in case a dependency also has react in its node_modules,
     // we don't want to be running to versions of react!!!
+    // 防止加载到某些依赖react的第三方类库携带的react版本
     alias: {
       react: path.join(__dirname, "node_modules/react")
     }

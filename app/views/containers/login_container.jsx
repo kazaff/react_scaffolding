@@ -7,11 +7,12 @@ import {isTokenSet}       from "app/api/auth_token";
 
 
 const select = (state) => ({
-  authenticationError: state.session.authenticationError
+  authenticationError: state.session.authenticationError  //todo state的结构是怎么生成的
 });
 
 /**
 * This is the entry point for any page that requires a logged in user
+* 容器等于page概念，需要被conncet成智能组件，可以分派action，内部包含纯component。
 */
 @connect(select)
 export default class LoginContainer extends Component {
@@ -31,7 +32,7 @@ export default class LoginContainer extends Component {
   }
 
   _handleSubmit ({email, password}) {
-    const {dispatch} = this.props;
+    const {dispatch} = this.props;  //todo dispatch如何传入的？
 
     dispatch(authenticate(email, password)).then((result) => {
       if (result.apiError) return;
@@ -41,7 +42,3 @@ export default class LoginContainer extends Component {
   }
 
 }
-
-
-
-
