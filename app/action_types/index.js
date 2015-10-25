@@ -2,6 +2,11 @@ import env from "app/utils/env";
 
 const list = [
   require("./session"),
+  require("./face"),
+  require("./password"),
+  require("./userInfo"),
+  require("./userList"),
+  require("./verification"),
 ];
 
 

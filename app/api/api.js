@@ -22,6 +22,7 @@ var _pendingRequests = [];
 // Be careful since won"t make any difference if the same api call gets
 // called with diffrent query strings or body, this feature stops any
 // pending call for the specified Api Call
+// 取消未发送队列中指定名称的请求任务
 function abortPendingRequestsForApiCall(apiCallName) {
   var pendingRequest = _.find(_pendingRequests, (pending) => {
     return pending._apiCallName === apiCallName;
@@ -117,7 +118,7 @@ function executeRequestFlow(options) {
 
     if (_(["GET", "POST", "PUT"]).contains(options.method)) {
       request.accept("json");
-      request.type("json");
+      request.type("json"); //todo 上传附件怎么办?
     }
 
     if (_(["POST", "PUT"]).contains(options.method)) {
@@ -204,6 +205,3 @@ var Api = {
 };
 
 module.exports = Api;
-
-
-

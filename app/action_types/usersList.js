@@ -2,12 +2,11 @@ import createAsyncActionsTypes from "./utils/create_async_actions_types";
 import createSyncActionsTypes from "./utils/create_sync_actions_types";
 
 const AsyncTypes = createAsyncActionsTypes([
-  "AUTHENTICATE"
+  "USERSLIST", "USERSTATUS", "USERDELETE"
 ]);
 
 const SyncTypes = createSyncActionsTypes([
-  "INFOCHANGE"
+  "USERSLIST_SEARCHKEY"
 ]);
-
 
 export default {...AsyncTypes, ...SyncTypes};

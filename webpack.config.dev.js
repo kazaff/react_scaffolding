@@ -17,7 +17,7 @@ var webpackConfig = {
 
     // Configuration in case you need to proxy calls to an api
     proxy: {
-      "/api/*": "http://localhost:5000"
+      "/api/*": "http://localhost/DataTraceV2Admin_Mock"
     },
 
     contentBase: "./build/dev_build"
@@ -59,7 +59,7 @@ var webpackConfig = {
     // we don't want to be running to versions of react!!!
     // 防止加载到某些依赖react的第三方类库携带的react版本
     alias: {
-      react: path.join(__dirname, "node_modules/react")
+      react: path.join(__dirname, "node_modules/react"),
     }
   },
   plugins: [

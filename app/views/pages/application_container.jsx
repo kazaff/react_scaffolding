@@ -1,11 +1,11 @@
 import React               from "react";
 import {connect}           from "react-redux";
-import {initializeSession} from "app/action_creators/session_action_creator";
-import {isTokenSet}        from "app/api/auth_token";
+import Header              from "app/views/components/Header/header";
 
 const select = (state) => ({
   isInitializingSession: state.application.isInitializingSession,
-  sessionValid: state.application.sessionValid
+  sessionValid: state.application.sessionValid,
+  user: state.session.user
 });
 
 /**
@@ -18,7 +18,14 @@ export default class ApplicationContainer extends React.Component {
 
   render () {
     return (
-      <div>{this.props.children}</div>
+      <div>
+        <Header user={this.props.user} onClick={this._handleClick.bind(this)} />
+        {this.props.children}
+      </div>
     );
+  }
+
+  _handleClick(){
+    this.props.history.pushState(null, "/me");
   }
 }

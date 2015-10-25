@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import {isTokenSet}       from "app/api/auth_token";
+import classNames from "./styles";
+import LeftNav from "app/views/components/LeftNav/leftNav";
 
 export default class SecuredContentContainer extends Component {
 
@@ -10,6 +12,11 @@ export default class SecuredContentContainer extends Component {
   }
 
   render () {
-    return this.props.children;
+    return (
+      <div className={classNames.securedContainer}>
+        <LeftNav />
+        <div className={classNames.mainContainer}>{this.props.children}</div>
+      </div>
+    );
   }
 }
